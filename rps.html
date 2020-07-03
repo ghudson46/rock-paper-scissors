@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+  <head>
+    <title>Rock, Paper, Scissors</title>
+    <meta charset="UTF-8">
+    <style>
+      .background-img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <img src="https://miro.medium.com/max/800/1*8du96SQUQ0NlWmWvVu20Zw.png" alt="rock paper scissors pic" class="background-img">
+    <script type="text/javascript">
+    
+    // choices the computer can select
+    var compChoices = ['rock', 'paper', 'scissors'];
+
+    // variables to store the # of wins, losses, and ties. starts at 0
+    var wins = 0;
+    var losses = 0;
+    var ties = 0;
+
+    // our loop that runs the game 10 times 
+    for (var i = 0; i < 10; i++) {
+      // the computers guess. created by generating a random number, rounding it down, multiplying that by the number of elements in the array, and using that number to select which element from the array the computer chooses
+      var compGuess = compChoices[Math.floor(Math.random() * compChoices.length)];
+
+      // prompts the user to enter rock paper or scissors. converts all text to lower case to avoid misinterpretations
+      var userGuess = prompt("Choose rock, paper, or scissors");
+      userGuess = userGuess.toLowerCase();
+    
+      // if user enters a valid input, the computer reveals its guess
+    if (userGuess === 'rock' || userGuess === 'paper' || userGuess === 'scissors') {
+      alert('the computer chose ' + compGuess);
+    
+    
+      // if else statement that decides who wins or loses based on the selection of the user and the computer
+    if (userGuess === 'scissors' && compGuess === 'paper') {
+      wins++;
+      alert('YOU WIN! you have won ' + wins + ' times.');
+    } else if (userGuess === 'rock' && compGuess === 'scissors') {
+      wins++;
+      alert('YOU WIN! you have won ' + wins + ' times.');
+    } else if (userGuess === 'paper' && compGuess === 'rock') {
+      wins++;
+      alert('YOU WIN! you have won ' + wins + ' times.');
+    } else if (userGuess === compGuess) {
+      ties++;
+      alert('you tied... you have tied ' + ties + ' times');
+    } else {
+      losses++;
+      alert('you lost. you have lost ' + losses + ' times');
+    }
+   }
+  }
+    </script>
+</body>
